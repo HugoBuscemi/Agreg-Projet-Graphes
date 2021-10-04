@@ -12,7 +12,6 @@ class Graph:
                     v = vertices_list[0]
                     for i in range(1,len(vertices_list)):
                         self.addEdge(v, vertices_list[i])
-                f.close()
 
     def vertices(self):
         """Retourne l'ensemble des sommets du graph"""
@@ -29,7 +28,6 @@ class Graph:
         self.addVertice(w)
         self.graph[v].add(w)
         self.graph[w].add(v)
-        print(self.graph)
 
     def adjacentTo(self, v):
         """Renvoie l'ensemble des sommets adjacents à v
