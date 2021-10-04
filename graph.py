@@ -32,13 +32,12 @@ class Graph:
         print(self.graph)
 
     def adjacentTo(self, v):
-        """Renvoie l'ensemble des sommets adjacents à v"""
+        """Renvoie l'ensemble des sommets adjacents à v
+        Remonte l'erreur ValueError si ce sommet n'existe pas"""
         if (v in self.vertices()):
             return self.graph[v]
         else:
             raise ValueError
-
-
 
 
 
