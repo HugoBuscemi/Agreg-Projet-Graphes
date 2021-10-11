@@ -10,6 +10,7 @@ class Graph:
                 for line in f:
                     vertices_list = line.split(delimiter)
                     v = vertices_list[0]
+                    #print(v)
                     for i in range(1,len(vertices_list)):
                         self.addEdge(v, vertices_list[i])
 
@@ -17,9 +18,13 @@ class Graph:
         """Retourne l'ensemble des sommets du graph"""
         return set(list(self.graph))
 
+    def is_vertice(self,v):
+        """Retourne True si v est un sommet du graph"""
+        return (v in self.graph.keys())
+
     def addVertice(self, v):
         """ Ajoute un sommet au graph"""
-        if not( v in self.vertices()):
+        if not(self.is_vertice(v)):
             self.graph[v] = set()
 
     def addEdge(self, v, w):
@@ -32,10 +37,28 @@ class Graph:
     def adjacentTo(self, v):
         """Renvoie l'ensemble des sommets adjacents à v
         Remonte l'erreur ValueError si ce sommet n'existe pas"""
-        if (v in self.vertices()):
+        if self.is_vertice(v):
             return self.graph[v]
         else:
             raise ValueError
+
+    def check_bipartite(self):
+        """Vérifie si le graph est bi-partite"""
+        vertices = self.vertices()
+        partite = {v:-1 for v in vertices}
+        tosee = [v for v in vertices]
+        if partite != []:
+            partite[0] = 0
+        while tosee != []:
+            v = tosee.pop()
+            color = partite[v]
+            for w in self.adjacentTo(v):
+                if partite[w] == -1: # Le sommet n'a jamais été visité
+                    partite[w] = 1 - color # On lui donne la coloration opposée à son voisin
+                    tosee.append(w) # On le regardera par la suite
+                elif partite[w] == color: # Le graph n'est pas bipartite
+                    return False
+        return True
 
 
 
@@ -84,3 +107,7 @@ def test_init_from_file():
         assert edge[0] in g.adjacentTo(edge[1])
         assert edge[1] in g.adjacentTo(edge[0])
     
+
+def test_bipartite():
+    g = Graph("movies.txt", '/')
+    assert g.check_bipartite()
