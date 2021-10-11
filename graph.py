@@ -8,9 +8,9 @@ class Graph:
         if filename != None:
             with open(filename, "r") as f:
                 for line in f:
+                    line = line[:-1] # Retire \n de la fin de la ligne
                     vertices_list = line.split(delimiter)
                     v = vertices_list[0]
-                    #print(v)
                     for i in range(1,len(vertices_list)):
                         self.addEdge(v, vertices_list[i])
 
