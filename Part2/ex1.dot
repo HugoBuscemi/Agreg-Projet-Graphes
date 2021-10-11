@@ -1,0 +1,1 @@
+digraph ex1 {	B -> C;	A -> B;	A -> C;	C -> D;	D -> A;}
