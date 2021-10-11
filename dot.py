@@ -175,10 +175,10 @@ if __name__ == "__main__" :
             f.write("\tnode [ shape = point width = .4]")
             f.write("\tedge [ width = .4 penwidth = 4]")
             for (i,j) in g.vertices():
-                c = x11[colors[i][j]]
+                c = x11[colors[i][j]% len(x11)]
                 f.write(f"\tn_{i}_{j} [ color = {c} pos = \"{i},{j}!\"];")
             for v,w in edges:
-                c = x11[colors[v[0]][v[1]]]
+                c = x11[colors[v[0]][v[1]] % len(x11)]
                 f.write(f"\tn_{v[0]}_{v[1]} -- n_{w[0]}_{w[1]}[ color = {c}];")
         f.write("}")
     ext = "pdf"

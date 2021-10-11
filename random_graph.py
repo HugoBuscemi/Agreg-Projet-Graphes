@@ -1,9 +1,9 @@
 from graph import Graph
 import random
 
-proba = 0.2
+proba = 0.5
 def create_graph(n, m):
-    """Crée le graph rendom de taille nxm"""
+    """Cree le graph rendom de taille nxm"""
     g = Graph()
     for i in range(n):
         for j in range(m):
@@ -14,12 +14,6 @@ def create_graph(n, m):
             if j > 0:
                 if random.random() < proba:
                     g.addEdge((i,j),(i,j-1))
-            if i < n-1:
-                if random.random() < proba:
-                    g.addEdge((i,j),(i+1,j))
-            if j < m-1:
-                if random.random() < proba:
-                    g.addEdge((i,j),(i,j+1))
     return g
 
 def init_matrix(n, m, value):
