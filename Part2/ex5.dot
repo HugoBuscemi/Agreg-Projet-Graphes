@@ -1,0 +1,1 @@
+digraph ex5 {	W -> V;	X -> W;	X -> S;	A -> B;	Q -> V;	Q -> L;	J -> I;	J -> O;	B -> G;	E -> J;	Y -> T;	Y -> X;	G -> H;	D -> E;	D -> I;	C -> B;	C -> D;	C -> H;	R -> W;	R -> Q;	H -> E;	H -> M;	L -> M;	L -> K;	L -> G;	O -> N;	T -> S;	T -> O;	M -> N;	M -> R;	F -> A;	F -> K;	F -> G;	U -> V;	U -> P;	S -> Y;	S -> N;	S -> R;	P -> Q;	I -> N;	I -> H;	K -> P;}

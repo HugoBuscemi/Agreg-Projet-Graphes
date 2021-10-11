@@ -1,0 +1,1 @@
+digraph ex2 {	P -> Q;	T -> G;	H -> U;	H -> G;	H -> I;	U -> T;	F -> E;	F -> S;	Z -> M;	O -> P;	C -> P;	X -> K;	L -> Y;	G -> F;	M -> L;	J -> K;	J -> W;	V -> U;	V -> J;	E -> D;	S -> R;	S -> T;	I -> V;	I -> J;	Y -> X;	Y -> Z;	W -> V;	W -> X;	A -> N;	Q -> D;	Q -> R;	R -> E;	B -> A;	B -> O;	B -> C;	D -> C;	K -> L;	N -> O;}

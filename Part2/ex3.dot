@@ -1,0 +1,1 @@
+digraph ex3 {	T -> U;	T -> L;	W -> O;	W -> X;	U -> V;	U -> M;	L -> H;	P -> H;	P -> O;	P -> X;	S -> R;	S -> T;	B -> J;	R -> J;	R -> Q;	C -> M;	F -> E;	F -> N;	M -> E;	M -> L;	D -> L;	D -> C;	A -> B;	E -> D;	O -> G;	V -> N;	J -> I;	J -> K;	G -> H;	G -> F;	N -> O;	N -> M;	I -> Q;	I -> A;	K -> S;}

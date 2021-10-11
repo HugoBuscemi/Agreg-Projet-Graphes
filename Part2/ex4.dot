@@ -1,0 +1,1 @@
+digraph ex4 {	U -> V;	U -> T;	I -> C;	I -> J;	I -> H;	O -> I;	O -> U;	O -> N;	E -> K;	E -> D;	S -> T;	A -> G;	X -> R;	K -> Q;	K -> L;	K -> J;	M -> S;	C -> B;	J -> P;	P -> O;	Q -> R;	Q -> P;	V -> P;	D -> C;	D -> J;	B -> A;	B -> H;	T -> N;	W -> X;	W -> V;	W -> Q;	L -> F;	G -> M;	N -> M;	R -> L;	F -> E;	H -> N;	H -> G;}

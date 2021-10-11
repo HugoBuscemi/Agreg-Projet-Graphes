@@ -1,3 +1,6 @@
+import sys
+import os
+
 class Graph:
 
     def __init__(self, filename = None, delimiter = None):
@@ -42,6 +45,14 @@ class Graph:
         else:
             raise ValueError
 
+        
+    def listEdges(self):
+        edges = []
+        for v in self.vertices():
+            for w in self.adjacentTo(v):
+                edges.append((v,w))
+        return edges
+
     def check_bipartite(self):
         """Vérifie si le graph est bi-partite"""
         vertices = self.vertices()
@@ -60,7 +71,16 @@ class Graph:
                     return False
         return True
 
-
+    def dot(self, name):
+        edges = self.listEdges()
+        filename = name + ".dot"
+        with open(filename, 'w') as f:
+            f.write("digraph " + name + " {")
+            for v,w in edges:
+                f.write(f"\t{v} -> {w};")
+            f.write("}")
+        ext = "pdf"
+        os.system(f"neato -o{name}.{ext} -T{ext} {name}.dot")
 
 
 
@@ -106,3 +126,17 @@ def test_init_from_file():
     for edge in edges:
         assert not(edge[0] in g.adjacentTo(edge[1]))
         assert edge[1] in g.adjacentTo(edge[0])
+
+
+
+
+
+if __name__ == "__main__" :
+    if not(os.path.isfile(sys.argv[1])):
+        raise NameError
+    
+    filename = sys.argv[1]
+    g = Graph(filename)
+    name = filename.split('.')[0]
+    g.dot(name)
+    
