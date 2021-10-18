@@ -71,13 +71,22 @@ class Graph:
                     return False
         return True
 
-    def dot(self, name):
-        edges = self.listEdges()
+    def dot(self, name, boldedges = None, normaledges = None, labels = None):
         filename = name + ".dot"
         with open(filename, 'w') as f:
-            f.write("digraph " + name + " {")
-            for v,w in edges:
-                f.write(f"\t{v} -> {w};")
+            f.write("digraph " + name + " {\n")
+            if labels != None:
+                for v in labels.keys():
+                    f.write(f"\t{v} [ label={labels[v]}];\n")
+            if boldedges == None:
+                edges = self.listEdges()
+                for v,w in edges:
+                    f.write(f"\t{v} -> {w};\n")
+            else:
+                for v,w in boldedges:
+                    f.write(f"\t{v} -> {w}[ penwidth=4];\n")
+                for v,w in normaledges:
+                    f.write(f"\t{v} -> {w}[];\n")
             f.write("}")
         ext = "pdf"
         os.system(f"neato -o{name}.{ext} -T{ext} {name}.dot")
